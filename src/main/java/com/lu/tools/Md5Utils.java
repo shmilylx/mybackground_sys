@@ -57,7 +57,7 @@ public class Md5Utils {
             System.out.println("第"+i+"次加密结果"+newPwd);
         }
 
-//        System.out.println(newPwd);
+      //  System.out.println(newPwd);
         return newPwd;
     }
 
