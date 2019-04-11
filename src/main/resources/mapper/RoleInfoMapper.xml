@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lu.mapper.RoleInfoMapper">
+
+    <select id="getRoleByUserId" parameterType="int" resultType="com.lu.dto.RoleInfoDto">
+        select r.*,u.userId from userinfo u right join user_role ur on ur.userId = u.userId
+        right join roleinfo r on ur.roleid = r.roleid
+        and ur.`status`=1
+        and u.`status` = 1 and u.userId = #{userId}
+    </select>
+
+    <update id="updatarole" parameterType="string">
+      UPDATE user_role set `status` =
+    (CASE when roleid in (" " ${arr} " ") THEN 1
+    when roleid in (" " ${unarr} " ") THEN 0 ELSE `status` end) where userId = #{userId}
+    </update>
+</mapper>
