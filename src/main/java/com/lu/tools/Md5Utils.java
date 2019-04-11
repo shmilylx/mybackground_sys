@@ -56,8 +56,7 @@ public class Md5Utils {
             newPwd = Md5Utils.MD5Encode(newPwd+pwd,"UTF-8");
             System.out.println("第"+i+"次加密结果"+newPwd);
         }
-
-      //  System.out.println(newPwd);
+        System.out.println(newPwd);
         return newPwd;
     }
 
